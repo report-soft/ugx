@@ -1,0 +1,132 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.home{
+    background-color:green;
+}
+.deleteAll{
+    background-color: crimson;
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-top: 20px;
+}
+/*nav*/
+.nav{
+    width: 96%; margin:auto;
+}
+/* Buttons */
+button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #003d80;
+}
+
+/* Form Inputs */
+form.eotForm input[type="text"],
+input[type="file"],
+input[type="date"] {
+    padding: 8px;
+    margin: 5px;
+    width: 90px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form.eotForm {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    
+}
+
+table th, table td {
+    padding: 1px;
+    text-align: center;
+    border: 1px solid
+  
+}
+
+table th {
+    background-color: #0056b3;
+    color: white;
+    font-size: 12px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+   
+}
+
+tbody{
+    font-size: 12px;
+}
+
+/* Search Input */
+.search-input {
+    padding: 10px;
+    width: 300px;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Logo Upload */
+#logoInput {
+    margin: 10px 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table th, table td {
+        padding: 5px;
+    }
+
+    form.eotForm input[type="text"], input[type="date"], input[type="file"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
