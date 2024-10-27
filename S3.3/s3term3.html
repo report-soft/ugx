@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasagama Secondary School</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="readAll()">
+
+    <div class="nav">
+        <button class="home">
+            <a href="../index.html">Home</a>
+        </button>
+        <button type="button"  onclick="exportToCSV()">Export to Excel</button>
+    
+        <input type="file" id="fileInput" accept=".csv, .xlsx" />
+    <button onclick="importData()">Import Data</button>
+    
+    <button onclick="generatePDFs()">Generate Reports</button>
+    
+    <label for="logoInput">Logo:</label>
+    <input type="file" id="logoInput" accept="image/png" onchange="uploadLogo()" />
+    
+    
+    <label for="nextTermDate">Next Term Date:</label>
+    <input type="date" id="nextTermDate">
+    <button  onclick="nextTermDate()" id="saveDateBtn">Save Date</button>
+
+    <button class="deleteAll" onclick="deleteAllRecords()">Delete All Records</button>
+   
+    </div>
+    <h1>Kasagama S.S Report Card Management System (KRCMS)</h1>
+    <div>
+        <form class="eotForm">
+            <label for="eotForm"> End of Term Results (80)</label> <br>
+            <input type="text" placeholder="Student's Name" class="name" required>
+            <input readonly value="S.3" type="text" class="class">
+            <input readonly value="2024" type="text" class="year">
+            <input readonly value="III" type="text" class="term">
+            <input type="text" placeholder="ENG" class="english">
+            <input type="text" placeholder="MTC" class="mathematics">
+            <input type="text" placeholder="PHY" class="physics">
+            <input type="text" placeholder="CHE" class="chemistry">
+            <input type="text" placeholder="BIO" class="biology">
+            <input type="text" placeholder="GEO" class="geography">
+            <input type="text" placeholder="HIS" class="history">
+            <input type="text" placeholder="KIS" class="kiswahili">
+            <input type="text" placeholder="P.E" class="pe">
+            <input type="text" placeholder="CRE" class="cre">
+            <input type="text" placeholder="AGRIC" class="agriculture">
+            <input type="text" placeholder="ENT" class="ent">
+            <input type="text" placeholder="ART" class="art">
+         <br>
+         <label for="eotForm">AOI Results (20)</label> <br>
+            <input type="text" placeholder="ENG/20" class="englishAOI">
+            <input type="text" placeholder="MTC/20" class="mathematicsAOI">
+            <input type="text" placeholder="PHY/20" class="physicsAOI">
+            <input type="text" placeholder="CHE/20" class="chemistryAOI">
+            <input type="text" placeholder="BIO/20" class="biologyAOI">
+            <input type="text" placeholder="GEO/20" class="geographyAOI">
+            <input type="text" placeholder="HIS/20" class="historyAOI">
+            <input type="text" placeholder="KIS/20" class="kiswahiliAOI">
+            <input type="text" placeholder="P.E/20" class="peAOI">
+            <input type="text" placeholder="CRE/20" class="creAOI">
+            <input type="text" placeholder="AGRIC/20" class="agricultureAOI">
+            <input type="text" placeholder="ENT/20" class="entAOI">
+            <input type="text" placeholder="ART/20" class="artAOI"> 
+        <br><br>
+            <input type="submit" onclick="create()" value="SAVE STUDENT RESULTS" class="submit">
+            <input type="submit" onclick="update(index)" value="UPDATE STUDENT RESULTS" class="update-button">
+        </form>
+        <br><br><br>
+    </div>
+    
+      <!-- Search bar -->
+      <form>
+        
+      </form>
+      <input type="text" class="search-input" placeholder="Search by Student's Name" onkeyup="searchByName()">
+    <br><br><br>
+      <div>
+        <table>
+            <thead>
+                <th>Actions</th>
+                <th>Student's Name</th>
+                <th>Class</th>
+                <th>Year</th>
+                <th>Term</th>
+                
+                <th>ENG/20</th>
+                <th>ENG/AOI</th>
+                <th>DES-ENG</th>
+                <th>ENG/80</th>
+                <th>ENG Grade</th>
+
+                <th>MTC/20</th>
+                <th>MTC/AOI</th>
+                <th>DES-MTC</th>
+                <th>MTC/80</th>
+                <th>MTC Grade</th>
+
+                
+                <th>PHY/20</th>
+                <th>PHY/AOI</th>
+                <th>DES-PHY</th>
+                <th>PHY/80</th>
+                <th>PHY Grade</th>
+
+                
+                <th>CHE/20</th>
+                <th>CHE/AOI</th>
+                <th>DES-CHE</th>
+                <th>CHE/80</th>
+                <th>CHE Grade</th>
+
+                
+                <th>BIO/20</th>
+                <th>BIO/AOI</th>
+                <th>DES-BIO</th>
+                <th>BIO/80</th>
+                <th>BIO Grade</th>
+
+              
+                <th>GEO/20</th>
+                <th>GEO/AOI</th>
+                <th>DES-GEO</th>
+                <th>GEO/80</th>
+                <th>GEO Grade</th>
+
+               
+                <th>HIS/20</th>
+                <th>HIS/AOI</th>
+                <th>DES-HIS</th>
+                <th>HIS/80</th>
+                <th>HIS Grade</th>
+
+              
+                <th>KIS/20</th>
+                <th>KIS/AOI</th>
+                <th>DES-KIS</th>
+                <th>KIS/80</th>
+                <th>KIS Grade</th>
+
+               
+                <th>P.E/20</th>
+                <th>P.E/AOI</th>
+                <th>DES-P.E</th>
+                <th>P.E/80</th>
+                <th>P.E Grade</th>
+
+               
+                <th>CRE/20</th>
+                <th>CRE/AOI</th>
+                <th>DES-CRE</th>
+                <th>CRE/80</th>
+                <th>CRE Grade</th>
+
+               
+                <th>AGRIC/20</th>
+                <th>AGRIC/AOI</th>
+                <th>DES-AGRIC</th>
+                <th>AGRIC/80</th>
+                <th>AGRIC Grade</th>
+
+                
+                <th>ENT/20</th>
+                <th>ENT/AOI</th>
+                <th>DES-ENT</th>
+                <th>ENT/80</th>
+                <th>ENT Grade</th>
+
+               
+                <th>ART/20</th>
+                <th>ART/AOI</th>
+                <th>DES-ART</th>
+                <th>ART/80</th>
+                <th>ART Grade</th>
+                
+                <th>CT COMMENT</th>
+                <th>HT COMMENT</th>
+                
+
+
+            </thead>
+            <tbody class="dataTable">
+
+            </tbody>
+        </table>
+    </div>
+
+<script src="s3term3script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+</body>
+</html>
